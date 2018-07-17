@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.v7.widget.Toolbar
+        app:title="Transfer Credit"
+        app:titleTextColor="#fff"
+        android:background="@color/colorPrimary"
+        app:titleMarginStart="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:onClick="userInfo"
+            android:layout_marginStart="180sp"
+            android:src="@drawable/ic_home"
+            android:layout_width="40sp"
+            android:layout_height="40sp" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <ListView
+        android:layout_marginTop="60sp"
+        android:id="@+id/myListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
