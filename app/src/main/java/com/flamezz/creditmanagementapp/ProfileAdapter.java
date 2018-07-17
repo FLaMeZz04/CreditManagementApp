@@ -17,6 +17,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
     private Context context;
 
     public void add(int position, String item) {
+
         values.add(position, item);
         notifyItemInserted(position);
     }
