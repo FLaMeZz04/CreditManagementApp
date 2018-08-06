@@ -12,20 +12,21 @@
         android:background="@color/colorPrimary"
         app:titleMarginStart="20sp"
         android:layout_width="match_parent"
-        android:layout_height="56dp">
-
-        <ImageView
-            android:onClick="userInfo"
-            android:layout_marginStart="180sp"
-            android:src="@drawable/ic_home"
-            android:layout_width="40sp"
-            android:layout_height="40sp" />
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="56dp"/>
 
 
-    <ListView
-        android:layout_marginTop="60sp"
-        android:id="@+id/myListView"
+    <TextView
+        android:textAlignment="center"
+        android:fontFamily="@font/volkron"
+        android:textSize="20sp"
+        android:text="Select User To Transfer Credit"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="15sp"
+        android:id="@+id/myRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

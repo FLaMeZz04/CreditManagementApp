@@ -12,11 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"/>
 
-<ListView
-    android:layout_marginTop="60sp"
-    android:id="@+id/listview"
+<android.support.v7.widget.RecyclerView
+    android:layout_marginTop="70sp"
+    android:id="@+id/recyclerView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"/>
-
 
 </RelativeLayout>

@@ -1,73 +1,75 @@
 package com.flamezz.creditmanagementapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class SelectUserActivity extends AppCompatActivity{
-        private TextView retrieveName,retreiveEmail,retrieveNumber,retrieveCredit;
-        private Button transferCredit;
-        private Profile profile;
+
+
         private DatabaseReference databaseReference;
-        String getname,getemail,getphone,getcredit;
+        private TextView retriveName,retriveEmail,retriveNumber,retriveCredit;
+        private Button transferCredit;
+        private String name,email,phone,credit;
         protected void onCreate(Bundle savedInstance)
         {
             super.onCreate(savedInstance);
             setContentView(R.layout.activity_select_user);
             InitializeControls();
+            setUpDetails();
+            transferCredit();
 
         }
 
         private void InitializeControls()
         {
-            databaseReference = FirebaseDatabase.getInstance().getReference("Profile");
-            retrieveName = findViewById(R.id.retriveName);
-            retreiveEmail = findViewById(R.id.retriveEmail);
-            retrieveNumber = findViewById(R.id.retriveNumber);
-            retrieveCredit = findViewById(R.id.retriveCredit);
-            transferCredit = findViewById(R.id.transferCredit);
-            setDetails();
-            setUpTransferCredit();
-        }
-        private void setDetails()
-        {
-            Intent intent = getIntent();
-            getname = intent.getStringExtra("PROF_NAME");
-            getemail = intent.getStringExtra("PROF_EMAIL");
-            getphone = intent.getStringExtra("PROF_PHONE");
-            getcredit = intent.getStringExtra("PROF_CREDIT");
-                        retrieveName.setText(getname);
-                        retreiveEmail.setText(getemail);
-                        retrieveNumber.setText(getphone);
-                        retrieveCredit.setText(getcredit);
 
+            databaseReference = FirebaseDatabase.getInstance().getReference("Profile");
+            retriveName = findViewById(R.id.retriveName);
+            retriveEmail = findViewById(R.id.retriveEmail);
+            retriveNumber = findViewById(R.id.retriveNumber);
+            retriveCredit = findViewById(R.id.retriveCredit);
+            transferCredit = findViewById(R.id.transferCredit);
+
+        }
+
+        @SuppressLint("SetTextI18n")
+        private void setUpDetails()
+        {
+
+             name = getIntent().getStringExtra("NAME");
+             email = getIntent().getStringExtra("EMAIL");
+             phone =  getIntent().getStringExtra("PHONE");
+             credit = getIntent().getStringExtra("CREDIT");
+            retriveName.setText("Name :\t"+name);
+            retriveEmail.setText("Email:\t"+email);
+            retriveNumber.setText("Phone:\t"+phone);
+            retriveCredit.setText("Current Credit:\t"+credit);
         }
 
 
     public void OnClick(View view) {
        onBackPressed();
     }
-
-    private void setUpTransferCredit()
+    private void transferCredit()
     {
         transferCredit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(SelectUserActivity.this,TransferCreditActivity.class);
-               startActivity(intent);
-
+                Intent intent = new Intent(SelectUserActivity.this,TransferCreditActivity.class);
+                intent.putExtra("userName",name);
+                intent.putExtra("userEmail",email);
+                intent.putExtra("userPhone",phone);
+                intent.putExtra("userCredit",credit);
+                startActivity(intent);
             }
         });
     }
+
 }

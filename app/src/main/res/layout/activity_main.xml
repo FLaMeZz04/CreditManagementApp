@@ -3,26 +3,27 @@
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
+    android:paddingLeft="15sp"
+    android:paddingRight="15sp"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:text="Credit App Management"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_marginTop="200sp"
-        android:layout_height="56dp" />
 
     <Button
-        android:layout_marginTop="50sp"
+        android:background="@drawable/custom_button"
+        android:textColor="#fff"
+        android:layout_marginTop="550sp"
+        android:fontFamily="@font/volkron"
+        android:textSize="20sp"
+        android:textAlignment="center"
         android:id="@+id/viewUsersButton"
-        android:text="View All Users"
-        android:layout_marginStart="130sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="@string/view_all_users"
+        android:layout_width="match_parent"
+        android:layout_height="56dp" />
+
+
 
 
 

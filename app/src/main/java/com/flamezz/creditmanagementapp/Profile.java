@@ -2,13 +2,24 @@ package com.flamezz.creditmanagementapp;
 
 public class Profile {
 
-    String name,email;
-    String phone,currentcredit;
+    private String name;
+    private String  email;
+    private String phone;
+    private String  currentcredit;
 
-    Profile()
+Profile()
+{
+
+}
+    Profile(String name,String email,String phone,String currentcredit)
     {
-
+        this.name=name;
+        this.email=email;
+        this.currentcredit=currentcredit;
+        this.phone=phone;
     }
+
+
 
 
     public void setName(String name)
@@ -24,9 +35,6 @@ public class Profile {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPhone() {
         return phone;
@@ -40,7 +48,5 @@ public class Profile {
         return currentcredit;
     }
 
-    public void setCurrentcredit(String currentcredit) {
-        this.currentcredit = currentcredit;
-    }
+
 }
